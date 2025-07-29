@@ -310,7 +310,7 @@ function initSmoothScrolling() {
 
 // GitHub配置
 const GITHUB_CONFIG = {
-    username: 'devops9128', // 替换为您的GitHub用户名
+    username: 'johnsmith-dev', // 替换为您的GitHub用户名
     repositories: {
         'E-commerce Platform': 'ecommerce-platform',
         'Task Management App': 'task-management-app', 
@@ -320,15 +320,11 @@ const GITHUB_CONFIG = {
 
 // LinkedIn配置
 const LINKEDIN_CONFIG = {
-    profileUrl: 'https://www.linkedin.com/in/tkgoh9128/', // 替换为您的LinkedIn个人资料URL
+    profileUrl: 'https://www.linkedin.com/in/tkgoh9128', // 替换为您的LinkedIn个人资料URL
     companyName: 'Tech Solutions Inc.', // 当前公司名称
     position: 'Senior Frontend Developer', // 当前职位
     location: 'San Francisco, CA', // 所在地区
-    connections: '500+', // 联系人数量
-    skills: [
-        'JavaScript', 'React', 'Node.js', 'TypeScript', 
-        'Vue.js', 'Python', 'AWS', 'Docker'
-    ]
+    connections: '500+' // 联系人数量
 };
 
 // LinkedIn功能
@@ -343,40 +339,19 @@ function initLinkedInFeatures() {
         }
     });
     
-    // 初始化LinkedIn信息切换功能
-    initLinkedInToggle();
-}
-
-// 初始化LinkedIn信息切换功能
-function initLinkedInToggle() {
-    const toggleBtn = document.getElementById('linkedin-toggle-btn');
-    const linkedinInfo = document.getElementById('linkedin-info');
-    
-    if (toggleBtn && linkedinInfo) {
-        toggleBtn.addEventListener('click', () => {
-            const isVisible = linkedinInfo.style.display !== 'none';
+    // 为LinkedIn分享按钮添加功能
+    document.addEventListener('click', (e) => {
+        const shareBtn = e.target.closest('.linkedin-share-btn');
+        
+        if (shareBtn) {
+            e.preventDefault();
+            const action = shareBtn.getAttribute('data-action');
             
-            if (isVisible) {
-                // 隐藏LinkedIn信息
-                linkedinInfo.classList.remove('show');
-                setTimeout(() => {
-                    linkedinInfo.style.display = 'none';
-                }, 300);
-                
-                toggleBtn.classList.remove('active');
-                toggleBtn.querySelector('span').textContent = 'View Professional Profile';
-            } else {
-                // 显示LinkedIn信息
-                linkedinInfo.style.display = 'block';
-                setTimeout(() => {
-                    linkedinInfo.classList.add('show');
-                }, 50);
-                
-                toggleBtn.classList.add('active');
-                toggleBtn.querySelector('span').textContent = 'Hide Professional Profile';
+            if (action === 'share-resume') {
+                shareResumeOnLinkedIn();
             }
-        });
-    }
+        }
+    });
 }
 
 // 处理LinkedIn按钮点击
@@ -386,134 +361,70 @@ function handleLinkedInClick(element) {
 
 // 打开LinkedIn个人资料
 function openLinkedInProfile() {
-    const linkedinUrl = LINKEDIN_CONFIG.profileUrl;
-    
     // 显示加载提示
     showNotification('正在跳转到LinkedIn个人资料...', 'info');
     
     // 延迟跳转，让用户看到提示
     setTimeout(() => {
-        window.open(linkedinUrl, '_blank', 'noopener,noreferrer');
+        window.open(LINKEDIN_CONFIG.profileUrl, '_blank', 'noopener,noreferrer');
         showNotification('已在新标签页打开LinkedIn个人资料', 'success');
     }, 500);
 }
 
 // 验证LinkedIn配置
 function validateLinkedInConfig() {
-    if (!LINKEDIN_CONFIG.profileUrl || LINKEDIN_CONFIG.profileUrl === 'https://www.linkedin.com/in/john-smith-developer') {
+    if (!LINKEDIN_CONFIG.profileUrl || LINKEDIN_CONFIG.profileUrl === 'https://www.linkedin.com/in/johnsmith-dev') {
         console.warn('请在LINKEDIN_CONFIG中配置您的LinkedIn个人资料URL');
         return false;
     }
     
-    try {
-        new URL(LINKEDIN_CONFIG.profileUrl);
-        return true;
-    } catch (error) {
-        console.error('LinkedIn URL格式不正确:', error);
+    // 检查URL格式
+    const linkedinUrlPattern = /^https:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9\-]+\/?$/;
+    if (!linkedinUrlPattern.test(LINKEDIN_CONFIG.profileUrl)) {
+        console.warn('LinkedIn URL格式不正确，请检查配置');
         return false;
     }
+    
+    return true;
 }
 
 // 更新LinkedIn信息显示
 function updateLinkedInInfo() {
-    // 更新LinkedIn链接的tooltip
-    const linkedinLinks = document.querySelectorAll('.social-link[data-tooltip="LinkedIn"]');
-    linkedinLinks.forEach(link => {
-        const tooltipText = `LinkedIn - ${LINKEDIN_CONFIG.position} at ${LINKEDIN_CONFIG.companyName}`;
-        link.setAttribute('data-tooltip', tooltipText);
-    });
-    
-    // 准备LinkedIn信息卡片数据（不自动显示）
-    prepareLinkedInCard();
-    
-    console.log('LinkedIn信息已更新');
-}
-
-// 准备LinkedIn信息卡片数据
-function prepareLinkedInCard() {
-    const linkedinInfo = document.getElementById('linkedin-info');
-    
-    if (linkedinInfo) {
-        // 更新职业信息
-        const positionElement = document.getElementById('linkedin-position');
-        const companyElement = document.getElementById('linkedin-company');
-        const locationElement = document.getElementById('linkedin-location');
-        const connectionsElement = document.getElementById('linkedin-connections');
-        
-        if (positionElement) positionElement.textContent = LINKEDIN_CONFIG.position;
-        if (companyElement) companyElement.textContent = LINKEDIN_CONFIG.companyName;
-        if (locationElement) locationElement.textContent = LINKEDIN_CONFIG.location;
-        if (connectionsElement) connectionsElement.textContent = `${LINKEDIN_CONFIG.connections} connections`;
-        
-        // 更新技能标签
-        updateLinkedInSkillsTags();
-    }
-}
-
-// 显示LinkedIn信息卡片
-function displayLinkedInCard() {
-    const linkedinInfo = document.getElementById('linkedin-info');
-    
-    if (linkedinInfo) {
-        // 更新职业信息
-        const positionElement = document.getElementById('linkedin-position');
-        const companyElement = document.getElementById('linkedin-company');
-        const locationElement = document.getElementById('linkedin-location');
-        const connectionsElement = document.getElementById('linkedin-connections');
-        
-        if (positionElement) positionElement.textContent = LINKEDIN_CONFIG.position;
-        if (companyElement) companyElement.textContent = LINKEDIN_CONFIG.companyName;
-        if (locationElement) locationElement.textContent = LINKEDIN_CONFIG.location;
-        if (connectionsElement) connectionsElement.textContent = `${LINKEDIN_CONFIG.connections} connections`;
-        
-        // 更新技能标签
-        updateLinkedInSkillsTags();
-        
-        // 显示卡片
-        linkedinInfo.style.display = 'block';
-        
-        // 添加动画效果
-        setTimeout(() => {
-            linkedinInfo.classList.add('show');
-        }, 100);
-    }
-}
-
-// 更新LinkedIn技能标签
-function updateLinkedInSkillsTags() {
-    const skillsContainer = document.getElementById('linkedin-skills-tags');
-    
-    if (skillsContainer) {
-        skillsContainer.innerHTML = '';
-        
-        // 获取前5个技能
-        const topSkills = getLinkedInSkills();
-        
-        topSkills.forEach(skill => {
-            const skillTag = document.createElement('span');
-            skillTag.className = 'skill-tag';
-            skillTag.textContent = skill;
-            skillsContainer.appendChild(skillTag);
+    try {
+        // 更新LinkedIn链接的tooltip
+        const linkedinLinks = document.querySelectorAll('.social-link[data-tooltip="LinkedIn"]');
+        linkedinLinks.forEach(link => {
+            const tooltipText = `LinkedIn - ${LINKEDIN_CONFIG.position} at ${LINKEDIN_CONFIG.companyName}`;
+            link.setAttribute('data-tooltip', tooltipText);
         });
+        
+        console.log('LinkedIn信息已更新');
+    } catch (error) {
+        console.warn('更新LinkedIn信息时出错:', error);
     }
 }
 
-// 获取LinkedIn技能标签
-function getLinkedInSkills() {
-    return LINKEDIN_CONFIG.skills.slice(0, 5); // 返回前5个技能
+// 获取LinkedIn分享功能
+function shareOnLinkedIn(title, url, summary) {
+    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`;
+    
+    showNotification('正在打开LinkedIn分享...', 'info');
+    
+    setTimeout(() => {
+        window.open(shareUrl, '_blank', 'width=600,height=400,noopener,noreferrer');
+    }, 500);
 }
 
-// 显示LinkedIn连接信息
-function showLinkedInConnectionInfo() {
-    const connectionInfo = {
-        company: LINKEDIN_CONFIG.companyName,
-        position: LINKEDIN_CONFIG.position,
-        location: LINKEDIN_CONFIG.location,
-        connections: LINKEDIN_CONFIG.connections
-    };
+// 分享履历到LinkedIn
+function shareResumeOnLinkedIn() {
+    const currentUrl = window.location.href;
+    const title = 'Check out my professional resume';
+    const summary = `I'm ${LINKEDIN_CONFIG.position} at ${LINKEDIN_CONFIG.companyName}, based in ${LINKEDIN_CONFIG.location}. Take a look at my professional background, skills, and recent projects. I'm always open to new opportunities and collaborations!`;
     
-    return connectionInfo;
+    shareOnLinkedIn(title, currentUrl, summary);
 }
+
+// GitHub功能
 function initGitHubFeatures() {
     // 为所有GitHub链接添加功能
     document.addEventListener('click', (e) => {
@@ -630,7 +541,9 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     const socialLink = e.target.closest('.social-link');
     
-    if (socialLink && socialLink.getAttribute('data-type') !== 'github' && socialLink.getAttribute('data-type') !== 'linkedin') {
+    if (socialLink && 
+        socialLink.getAttribute('data-type') !== 'github' && 
+        socialLink.getAttribute('data-type') !== 'linkedin') {
         e.preventDefault();
         
         const linkType = socialLink.getAttribute('data-type');
