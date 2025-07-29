@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScrolling();
     initGitHubFeatures(); // 初始化GitHub功能
     initLinkedInFeatures(); // 初始化LinkedIn功能
+    initProjectDemoFeatures(); // 初始化项目演示功能
     
     // 异步获取信息
     updateGitHubInfo();
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 验证配置
     validateLinkedInConfig();
+    validateProjectDemoConfig();
 });
 
 // 导航功能
@@ -310,12 +312,7 @@ function initSmoothScrolling() {
 
 // GitHub配置
 const GITHUB_CONFIG = {
-    username: 'johnsmith-dev', // 替换为您的GitHub用户名
-    repositories: {
-        'E-commerce Platform': 'ecommerce-platform',
-        'Task Management App': 'task-management-app', 
-        'Weather Dashboard': 'weather-dashboard'
-    }
+    username: 'devops9128' // 替换为您的GitHub用户名
 };
 
 // LinkedIn配置
@@ -326,6 +323,202 @@ const LINKEDIN_CONFIG = {
     location: 'San Francisco, CA', // 所在地区
     connections: '500+' // 联系人数量
 };
+
+// 项目演示配置
+const PROJECT_DEMO_CONFIG = {
+    // 项目演示链接映射
+    demoUrls: {
+        'E-commerce Platform': 'https://ecommerce-demo.netlify.app',
+        'Task Management App': 'https://taskmanager-demo.vercel.app',
+        'Weather Dashboard': 'https://weather-dashboard-demo.surge.sh'
+    },
+    
+    // 演示环境信息
+    environments: {
+        'E-commerce Platform': {
+            status: 'live',
+            lastUpdated: '2024-12-15',
+            technologies: ['React', 'Node.js', 'MongoDB'],
+            features: ['用户认证', '购物车', '支付集成', '订单管理']
+        },
+        'Task Management App': {
+            status: 'live',
+            lastUpdated: '2024-12-10',
+            technologies: ['Vue.js', 'Socket.io', 'Firebase'],
+            features: ['实时协作', '拖拽功能', '团队管理', '任务分配']
+        },
+        'Weather Dashboard': {
+            status: 'live',
+            lastUpdated: '2024-12-08',
+            technologies: ['JavaScript', 'Chart.js', 'Weather API'],
+            features: ['位置定位', '天气预报', '交互图表', '响应式设计']
+        }
+    },
+    
+    // 默认设置
+    defaultMessage: '演示环境正在准备中...',
+    loadingTimeout: 3000
+};
+
+// 项目演示功能
+function initProjectDemoFeatures() {
+    // 为所有演示链接添加功能
+    document.addEventListener('click', (e) => {
+        const demoLink = e.target.closest('.project-link[data-type="demo"]');
+        
+        if (demoLink) {
+            e.preventDefault();
+            handleProjectDemoClick(demoLink);
+        }
+    });
+    
+    // 添加项目状态指示器
+    addProjectStatusIndicators();
+}
+
+// 处理项目演示按钮点击
+function handleProjectDemoClick(element) {
+    const projectCard = element.closest('.project-card');
+    const projectTitle = projectCard.querySelector('.project-title').textContent;
+    
+    openProjectDemo(projectTitle, element);
+}
+
+// 打开项目演示
+function openProjectDemo(projectTitle, buttonElement) {
+    const demoUrl = PROJECT_DEMO_CONFIG.demoUrls[projectTitle];
+    const environment = PROJECT_DEMO_CONFIG.environments[projectTitle];
+    
+    if (demoUrl && environment && environment.status === 'live') {
+        // 显示加载状态
+        showDemoLoadingState(buttonElement, projectTitle);
+        
+        // 检查演示站点可用性
+        checkDemoAvailability(demoUrl, projectTitle, buttonElement);
+    } else {
+        showNotification(PROJECT_DEMO_CONFIG.defaultMessage, 'info');
+    }
+}
+
+// 显示演示加载状态
+function showDemoLoadingState(buttonElement, projectTitle) {
+    const originalIcon = buttonElement.querySelector('i').className;
+    const iconElement = buttonElement.querySelector('i');
+    
+    // 更改为加载图标
+    iconElement.className = 'fas fa-spinner fa-spin';
+    buttonElement.style.pointerEvents = 'none';
+    
+    // 显示加载提示
+    showNotification(`正在启动 ${projectTitle} 演示环境...`, 'info');
+    
+    // 设置超时恢复
+    setTimeout(() => {
+        iconElement.className = originalIcon;
+        buttonElement.style.pointerEvents = 'auto';
+    }, PROJECT_DEMO_CONFIG.loadingTimeout);
+}
+
+// 检查演示站点可用性
+async function checkDemoAvailability(url, projectTitle, buttonElement) {
+    try {
+        // 模拟检查（实际项目中可以使用真实的健康检查端点）
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // 打开演示站点
+        const demoWindow = window.open(url, '_blank', 'noopener,noreferrer');
+        
+        if (demoWindow) {
+            showNotification(`${projectTitle} 演示已在新窗口中打开`, 'success');
+            
+            // 记录访问统计
+            recordDemoAccess(projectTitle);
+        } else {
+            showNotification('请允许弹窗以查看演示', 'warning');
+        }
+        
+    } catch (error) {
+        console.error('演示站点检查失败:', error);
+        showNotification('演示站点暂时不可用，请稍后再试', 'error');
+    }
+}
+
+// 添加项目状态指示器
+function addProjectStatusIndicators() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        const projectTitle = card.querySelector('.project-title').textContent;
+        const environment = PROJECT_DEMO_CONFIG.environments[projectTitle];
+        
+        if (environment) {
+            // 创建状态指示器
+            const statusIndicator = document.createElement('div');
+            statusIndicator.className = 'project-status';
+            statusIndicator.innerHTML = `
+                <span class="status-dot ${environment.status}"></span>
+                <span class="status-text">${environment.status === 'live' ? '在线演示' : '准备中'}</span>
+            `;
+            
+            // 添加到项目内容区域
+            const projectContent = card.querySelector('.project-content');
+            projectContent.insertBefore(statusIndicator, projectContent.querySelector('.project-tech'));
+            
+            // 更新演示按钮的tooltip
+            const demoButton = card.querySelector('.project-link[data-type="demo"]');
+            if (demoButton && environment.status === 'live') {
+                demoButton.setAttribute('data-tooltip', '查看在线演示');
+            }
+        }
+    });
+}
+
+// 记录演示访问统计
+function recordDemoAccess(projectTitle) {
+    const accessKey = `demo_access_${projectTitle.replace(/\s+/g, '_')}`;
+    const currentCount = parseInt(localStorage.getItem(accessKey) || '0');
+    localStorage.setItem(accessKey, (currentCount + 1).toString());
+    
+    console.log(`${projectTitle} 演示访问次数: ${currentCount + 1}`);
+}
+
+// 获取项目演示统计信息
+function getDemoStats() {
+    const stats = {};
+    
+    Object.keys(PROJECT_DEMO_CONFIG.demoUrls).forEach(projectTitle => {
+        const accessKey = `demo_access_${projectTitle.replace(/\s+/g, '_')}`;
+        stats[projectTitle] = parseInt(localStorage.getItem(accessKey) || '0');
+    });
+    
+    return stats;
+}
+
+// 验证项目演示配置
+function validateProjectDemoConfig() {
+    const issues = [];
+    
+    Object.keys(PROJECT_DEMO_CONFIG.demoUrls).forEach(projectTitle => {
+        const url = PROJECT_DEMO_CONFIG.demoUrls[projectTitle];
+        const environment = PROJECT_DEMO_CONFIG.environments[projectTitle];
+        
+        if (!url || !url.startsWith('http')) {
+            issues.push(`${projectTitle}: 无效的演示URL`);
+        }
+        
+        if (!environment) {
+            issues.push(`${projectTitle}: 缺少环境配置`);
+        }
+    });
+    
+    if (issues.length > 0) {
+        console.warn('项目演示配置问题:', issues);
+    } else {
+        console.log('项目演示配置验证通过');
+    }
+    
+    return issues.length === 0;
+}
 
 // LinkedIn功能
 function initLinkedInFeatures() {
@@ -442,11 +635,9 @@ function handleGitHubClick(element) {
     const isProjectLink = element.classList.contains('project-link');
     
     if (isProjectLink) {
-        // 项目中的GitHub按钮
-        const projectCard = element.closest('.project-card');
-        const projectTitle = projectCard.querySelector('.project-title').textContent;
-        
-        openGitHubRepository(projectTitle);
+        // 项目中的GitHub按钮已移除，不再处理
+        showNotification('GitHub按钮已移除', 'info');
+        return;
     } else {
         // 社交链接中的GitHub按钮
         openGitHubProfile();
@@ -464,23 +655,6 @@ function openGitHubProfile() {
     setTimeout(() => {
         window.open(githubUrl, '_blank', 'noopener,noreferrer');
     }, 500);
-}
-
-// 打开GitHub项目仓库
-function openGitHubRepository(projectTitle) {
-    const repoName = GITHUB_CONFIG.repositories[projectTitle];
-    
-    if (repoName) {
-        const repoUrl = `https://github.com/${GITHUB_CONFIG.username}/${repoName}`;
-        
-        showNotification(`正在跳转到 ${projectTitle} 项目仓库...`, 'info');
-        
-        setTimeout(() => {
-            window.open(repoUrl, '_blank', 'noopener,noreferrer');
-        }, 500);
-    } else {
-        showNotification('项目仓库链接暂未配置', 'error');
-    }
 }
 
 // 检查GitHub用户是否存在
@@ -522,20 +696,6 @@ async function updateGitHubInfo() {
         console.warn('无法获取GitHub信息:', error);
     }
 }
-
-// 项目链接处理（更新后的版本）
-document.addEventListener('click', (e) => {
-    const projectLink = e.target.closest('.project-link[data-type="demo"]');
-    
-    if (projectLink) {
-        e.preventDefault();
-        
-        const projectCard = projectLink.closest('.project-card');
-        const projectTitle = projectCard.querySelector('.project-title').textContent;
-        
-        showNotification(`${projectTitle} 在线演示功能待实现`, 'info');
-    }
-});
 
 // 其他社交链接处理
 document.addEventListener('click', (e) => {
