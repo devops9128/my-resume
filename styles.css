@@ -478,13 +478,58 @@ body {
     line-height: 1.5;
 }
 
+/* ===== 图片保护样式 ===== */
+
+/* 防止头像图片被保存和复制 */
+.profile-image img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 防止认证证书图片被保存和复制 */
+#certificate-image {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 禁用右键菜单和选择 */
+.profile-image,
+.certificate-modal-content {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
 /* 认证证书 */
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .certification-card {
@@ -496,6 +541,10 @@ body {
     border: 2px solid transparent;
     opacity: 0;
     transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 320px;
 }
 
 .certification-card:hover {
@@ -572,11 +621,16 @@ body {
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
 }
 
 .certification-actions {
     display: flex;
     justify-content: center;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 .btn-certificate {
@@ -996,9 +1050,14 @@ body {
     }
     
     .skills-grid,
-    .certifications-grid,
     .education-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 0 0.5rem;
     }
     
     .contact-content {

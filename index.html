@@ -15,7 +15,7 @@
     <nav class="sidebar">
         <div class="profile-section">
             <div class="profile-image">
-                <img src="./cloud.png" alt="Profile Picture">
+                <img src="./cloud.png" alt="Profile Picture" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" draggable="false">
             </div>
             <h2 class="name">Chris Goh</h2>
             <p class="title">IT Support Engineer</p>
@@ -267,7 +267,7 @@
                     </div>
                 </div>
 
-                <div class="certification-card" data-animation="fade-up" data-certificate-image="./img/msca.png">
+                <div class="certification-card" data-animation="fade-up" data-certificate-image="./img/mcsa2016.png">
                     <div class="certification-header">
                         <div class="certification-icon">
                             <i class="fab fa-microsoft"></i>
@@ -282,14 +282,14 @@
                         Professional certification demonstrating expertise in windows server 2016.
                     </div>
                     <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('aws-cert')">
+                        <button class="btn-certificate" onclick="showCertificate('mcsa-2016-cert')">
                             <i class="fas fa-certificate"></i>
                             View Certificate
                         </button>
                     </div>
                 </div>
 
-                <div class="certification-card" data-animation="fade-up" data-certificate-image="./img/msca.png">
+                <div class="certification-card" data-animation="fade-up" data-certificate-image="./img/mcsa.png">
                     <div class="certification-header">
                         <div class="certification-icon">
                             <i class="fab fa-microsoft"></i>
@@ -304,7 +304,7 @@
                         Professional certification demonstrating expertise in windows server 2012.
                     </div>
                     <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('aws-cert')">
+                        <button class="btn-certificate" onclick="showCertificate('mcsa-2012-cert')">
                             <i class="fas fa-certificate"></i>
                             View Certificate
                         </button>
@@ -323,10 +323,10 @@
                         </div>
                     </div>
                     <div class="certification-description">
-                        Certification in developing scalable and reliable applications on Google Cloud Platform.
+                        Essential certification in artificial intelligence and machine learning fundamentals.
                     </div>
                     <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('gcp-cert')">
+                        <button class="btn-certificate" onclick="showCertificate('google-ai-cert')">
                             <i class="fas fa-certificate"></i>
                             View Certificate
                         </button>
@@ -345,10 +345,10 @@
                         </div>
                     </div>
                     <div class="certification-description">
-                        Certification in developing scalable and reliable applications on Google Cloud Platform.
+                        Professional certification in IT automation using Python programming language.
                     </div>
                     <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('gcp-cert')">
+                        <button class="btn-certificate" onclick="showCertificate('google-python-cert')">
                             <i class="fas fa-certificate"></i>
                             View Certificate
                         </button>
@@ -367,54 +367,10 @@
                         </div>
                     </div>
                     <div class="certification-description">
-                        Certification in developing scalable and reliable applications on Google Cloud Platform.
+                        Comprehensive certification in IT support and troubleshooting fundamentals.
                     </div>
                     <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('gcp-cert')">
-                            <i class="fas fa-certificate"></i>
-                            View Certificate
-                        </button>
-                    </div>
-                </div>
-
-                <div class="certification-card" data-animation="fade-up" data-delay="200" data-certificate-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80">
-                    <div class="certification-header">
-                        <div class="certification-icon">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <div class="certification-info">
-                            <h3 class="certification-title">React Developer Certification</h3>
-                            <p class="certification-issuer">Meta (Facebook)</p>
-                            <span class="certification-date">2022</span>
-                        </div>
-                    </div>
-                    <div class="certification-description">
-                        Advanced certification in React development, including hooks, context, and performance optimization.
-                    </div>
-                    <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('react-cert')">
-                            <i class="fas fa-certificate"></i>
-                            View Certificate
-                        </button>
-                    </div>
-                </div>
-
-                <div class="certification-card" data-animation="fade-up" data-delay="300" data-certificate-image="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80">
-                    <div class="certification-header">
-                        <div class="certification-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="certification-info">
-                            <h3 class="certification-title">Full Stack Web Development</h3>
-                            <p class="certification-issuer">freeCodeCamp</p>
-                            <span class="certification-date">2021</span>
-                        </div>
-                    </div>
-                    <div class="certification-description">
-                        Comprehensive certification covering frontend and backend development technologies.
-                    </div>
-                    <div class="certification-actions">
-                        <button class="btn-certificate" onclick="showCertificate('fullstack-cert')">
+                        <button class="btn-certificate" onclick="showCertificate('google-it-cert')">
                             <i class="fas fa-certificate"></i>
                             View Certificate
                         </button>
@@ -428,7 +384,7 @@
             <div class="certificate-modal-content">
                 <span class="certificate-close" onclick="closeCertificate()">&times;</span>
                 <div class="certificate-container">
-                    <img id="certificate-image" src="" alt="Certificate" />
+                    <img id="certificate-image" src="" alt="Certificate" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" draggable="false" />
                     <div class="certificate-placeholder">
                         <i class="fas fa-certificate"></i>
                         <p>No certificate image available</p>
