@@ -128,7 +128,7 @@ function createMobileMenuButton() {
         top: 20px;
         left: 20px;
         z-index: 1001;
-        background: #E67E22;
+        background: linear-gradient(135deg, #00D4AA, #007991);
         color: white;
         border: none;
         width: 50px;
@@ -136,7 +136,7 @@ function createMobileMenuButton() {
         border-radius: 50%;
         font-size: 1.2rem;
         cursor: pointer;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
         transition: all 0.3s ease;
     `;
     

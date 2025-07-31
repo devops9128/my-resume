@@ -23,19 +23,19 @@ body {
     top: 0;
     width: 300px;
     height: 100vh;
-    background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+    background: linear-gradient(135deg, #0F3460 0%, #16537e 50%, #1e6091 100%);
     color: white;
     padding: 2rem 1.5rem;
     overflow-y: auto;
     z-index: 1000;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 15px rgba(15, 52, 96, 0.3);
 }
 
 .profile-section {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .profile-image {
@@ -44,8 +44,8 @@ body {
     margin: 0 auto 1rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #E67E22;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 4px solid #00D4AA;
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
 }
 
 .profile-image img {
@@ -59,12 +59,15 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #ECF0F1;
+    color: #FFFFFF;
 }
 
 .title {
     font-size: 0.9rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
 }
 
@@ -91,8 +94,9 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .nav-link i {
@@ -105,7 +109,7 @@ body {
 .contact-info {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .contact-item {
@@ -113,14 +117,14 @@ body {
     align-items: center;
     margin-bottom: 0.75rem;
     font-size: 0.85rem;
-    color: #BDC3C7;
+    color: #B8E6FF;
 }
 
 .contact-item i {
     margin-right: 0.75rem;
     width: 16px;
     text-align: center;
-    color: #E67E22;
+    color: #00D4AA;
 }
 
 /* 社交链接 */
@@ -136,16 +140,19 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ECF0F1;
+    background-color: rgba(0, 212, 170, 0.2);
+    color: #B8E6FF;
     text-decoration: none;
     border-radius: 50%;
     transition: all 0.3s ease;
+    border: 1px solid rgba(0, 212, 170, 0.3);
 }
 
 .social-link:hover {
-    background-color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
+    color: white;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
 }
 
 /* 主内容区域 */
@@ -170,16 +177,20 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     font-weight: 600;
-    color: #2C3E50;
+    background: linear-gradient(45deg, #0F3460, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1rem;
 }
 
 .section-line {
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #E67E22, #F39C12);
+    background: linear-gradient(90deg, #00D4AA, #007991);
     margin: 0 auto;
     border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 212, 170, 0.3);
 }
 
 /* 关于我部分 */
@@ -220,7 +231,10 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 0.5rem;
 }
 
@@ -244,7 +258,8 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, #E67E22, #F39C12);
+    background: linear-gradient(180deg, #00D4AA, #007991);
+    box-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
 }
 
 .timeline-item {
@@ -257,24 +272,25 @@ body {
     content: '';
     position: absolute;
     left: 21px;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    background-color: #E67E22;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 50%;
-    border: 4px solid #FFFFFF;
-    box-shadow: 0 0 0 4px #E67E22;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2);
 }
 
 .timeline-date {
     display: inline-block;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .timeline-content {
@@ -282,7 +298,7 @@ body {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid #E67E22;
+    border-left: 4px solid #00D4AA;
 }
 
 .job-title {
@@ -295,7 +311,10 @@ body {
 
 .company {
     font-size: 1rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
     margin-bottom: 1rem;
 }
@@ -360,11 +379,16 @@ body {
 }
 
 .skill-percentage {
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .skill-bar {
+    width: 100%;
     height: 8px;
     background-color: #ECF0F1;
     border-radius: 4px;
@@ -373,10 +397,11 @@ body {
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #E67E22, #F39C12);
+    background: linear-gradient(90deg, #00D4AA, #007991, #0F3460);
     border-radius: 4px;
     width: 0;
     transition: width 1.5s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 212, 170, 0.3);
 }
 
 /* 教育背景 */
@@ -405,12 +430,13 @@ body {
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
 }
 
 .education-icon i {
@@ -426,13 +452,16 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #2C3E50;
+    color: #0F3460;
     margin-bottom: 0.5rem;
 }
 
 .school {
     font-size: 1rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
@@ -472,7 +501,7 @@ body {
 .certification-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border-color: #E67E22;
+    border-color: #00D4AA;
 }
 
 .certification-card.animate {
@@ -490,13 +519,14 @@ body {
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 1.5rem;
     transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
 }
 
 .certification-card:hover .certification-icon {
@@ -516,14 +546,17 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #2C3E50;
+    color: #0F3460;
     margin-bottom: 0.5rem;
     line-height: 1.3;
 }
 
 .certification-issuer {
     font-size: 1rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
     margin-bottom: 0.25rem;
 }
@@ -559,15 +592,16 @@ body {
     transition: all 0.3s ease;
     text-decoration: none;
     font-family: inherit;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     min-width: 140px;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .btn-certificate:hover {
-    background: linear-gradient(135deg, #D35400, #E67E22);
+    background: linear-gradient(135deg, #007991, #0F3460);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 121, 145, 0.4);
 }
 
 /* 证书模态框 */
@@ -628,7 +662,7 @@ body {
 }
 
 .certificate-close:hover {
-    background: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     transform: scale(1.1);
 }
@@ -733,11 +767,17 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     text-decoration: none;
     border-radius: 50%;
     transition: transform 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
+}
+
+.project-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
 }
 
 .project-link:hover {
@@ -769,9 +809,10 @@ body {
     gap: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.5rem 0.75rem;
-    background: rgba(231, 126, 34, 0.1);
+    background: rgba(0, 212, 170, 0.1);
     border-radius: 20px;
     width: fit-content;
+    border: 1px solid rgba(0, 212, 170, 0.2);
 }
 
 .status-dot {
@@ -878,13 +919,14 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #E67E22;
+    border-color: #00D4AA;
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
 }
 
 .submit-btn {
     width: 100%;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     border: none;
     border-radius: 8px;
@@ -892,11 +934,14 @@ body {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .submit-btn:hover {
+    background: linear-gradient(135deg, #007991, #0F3460);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 121, 145, 0.4);
 }
 
 .form-actions {
@@ -1048,10 +1093,54 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #D35400;
+    background: linear-gradient(135deg, #007991, #0F3460);
+}
+/* Footer 样式 */
+.footer {
+    background: linear-gradient(135deg, #0F3460, #16537e);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 3px solid #00D4AA;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-text {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-text p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #ECF0F1;
+    line-height: 1.5;
+}
+
+.footer-text p:first-child {
+    font-weight: 600;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
 }
