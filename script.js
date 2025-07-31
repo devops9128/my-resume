@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGitHubFeatures(); // 初始化GitHub功能
     initLinkedInFeatures(); // 初始化LinkedIn功能
     initProjectDemoFeatures(); // 初始化项目演示功能
+    initCertificationFeatures(); // 初始化认证功能
     
     // 异步获取信息
     updateGitHubInfo();
@@ -88,7 +89,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // 观察所有卡片元素
-    const animatedElements = document.querySelectorAll('.stat-card, .timeline-item, .education-card, .project-card');
+    const animatedElements = document.querySelectorAll('.stat-card, .timeline-item, .certification-card, .project-card');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -773,3 +774,122 @@ const throttledScroll = throttle(() => {
 }, 100);
 
 window.addEventListener('scroll', throttledScroll);
+
+// ===== 认证证书功能 =====
+
+// 初始化认证功能
+function initCertificationFeatures() {
+    initCertificationAnimations();
+    initCertificateModal();
+    
+    console.log('认证功能已初始化');
+}
+
+// 初始化认证卡片动画
+function initCertificationAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.getAttribute('data-delay') || 0;
+                
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                }, delay);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // 观察所有认证卡片
+    const certificationCards = document.querySelectorAll('.certification-card');
+    certificationCards.forEach(card => {
+        observer.observe(card);
+    });
+}
+
+// 初始化证书模态框
+function initCertificateModal() {
+    const modal = document.getElementById('certificate-modal');
+    
+    if (modal) {
+        // 点击模态框外部关闭
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeCertificate();
+            }
+        });
+        
+        // ESC键关闭模态框
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeCertificate();
+            }
+        });
+    }
+}
+
+// 显示证书
+function showCertificate(certId) {
+    const modal = document.getElementById('certificate-modal');
+    const certificateImage = document.getElementById('certificate-image');
+    const placeholder = document.querySelector('.certificate-placeholder');
+    
+    if (!modal) {
+        console.error('证书模态框未找到');
+        return;
+    }
+    
+    // 查找对应的认证卡片
+    const certificationCard = document.querySelector(`[onclick*="${certId}"]`).closest('.certification-card');
+    const imageUrl = certificationCard ? certificationCard.getAttribute('data-certificate-image') : null;
+    
+    if (imageUrl) {
+        certificateImage.src = imageUrl;
+        certificateImage.style.display = 'block';
+        placeholder.style.display = 'none';
+        
+        // 添加图片加载错误处理
+        certificateImage.onerror = function() {
+            certificateImage.style.display = 'none';
+            placeholder.style.display = 'block';
+        };
+    } else {
+        certificateImage.style.display = 'none';
+        placeholder.style.display = 'block';
+    }
+    
+    // 显示模态框
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+    
+    // 添加显示动画
+    setTimeout(() => {
+        modal.querySelector('.certificate-modal-content').style.transform = 'scale(1)';
+        modal.querySelector('.certificate-modal-content').style.opacity = '1';
+    }, 10);
+}
+
+// 关闭证书模态框
+function closeCertificate() {
+    const modal = document.getElementById('certificate-modal');
+    
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // 恢复背景滚动
+        
+        // 重置模态框内容状态
+        const modalContent = modal.querySelector('.certificate-modal-content');
+        modalContent.style.transform = 'scale(0.9)';
+        modalContent.style.opacity = '0';
+    }
+}
+
+// 导出证书管理功能到全局作用域
+window.showCertificate = showCertificate;
+window.closeCertificate = closeCertificate;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Smith - Resume</title>
+    <title>Chris Goh - Resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
             <li><a href="#about" class="nav-link active"><i class="fas fa-user"></i> About Me</a></li>
             <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
             <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
-            <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
             <li><a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i> Projects</a></li>
             
         </ul>
@@ -238,42 +238,117 @@
             </div>
         </section>
 
-        <!-- Education -->
-        <section id="education" class="section">
+        <!-- Certifications -->
+        <section id="certifications" class="section">
             <div class="section-header">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title">Certifications</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Bachelor of Computer Science</h3>
-                            <span class="timeline-date">2016 - 2020</span>
+            <div class="certifications-grid">
+                <div class="certification-card" data-animation="fade-up" data-certificate-image="./Coursera.png">
+                    <div class="certification-header">
+                        <div class="certification-icon">
+                            <i class="fab fa-aws"></i>
                         </div>
-                        <p class="timeline-company">University of Technology</p>
-                        <p class="timeline-description">
-                            Major in Computer Science and Technology, with excellent academic performance. Participated in multiple programming competitions and technical projects, laying a solid foundation for software development.
-                        </p>
+                        <div class="certification-info">
+                            <h3 class="certification-title">AWS Certified Solutions Architect</h3>
+                            <p class="certification-issuer">Amazon Web Services</p>
+                            <span class="certification-date">2023</span>
+                        </div>
+                    </div>
+                    <div class="certification-description">
+                        Professional certification demonstrating expertise in designing distributed systems on AWS.
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('aws-cert')">
+                            <i class="fas fa-certificate"></i>
+                            显示文凭
+                        </button>
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Frontend Development Certification</h3>
-                            <span class="timeline-date">2020</span>
+
+                <div class="certification-card" data-animation="fade-up" data-delay="100" data-certificate-image="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80">
+                    <div class="certification-header">
+                        <div class="certification-icon">
+                            <i class="fab fa-google"></i>
                         </div>
-                        <p class="timeline-company">Tech Academy</p>
-                        <p class="timeline-description">
-                            Completed comprehensive frontend development training, mastering modern frontend frameworks and development tools.
-                        </p>
+                        <div class="certification-info">
+                            <h3 class="certification-title">Google IT Automation with Python</h3>
+                            <p class="certification-issuer">Google Technologies</p>
+                            <span class="certification-date">2023</span>
+                        </div>
+                    </div>
+                    <div class="certification-description">
+                        Certification in developing scalable and reliable applications on Google Cloud Platform.
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('gcp-cert')">
+                            <i class="fas fa-certificate"></i>
+                            显示文凭
+                        </button>
+                    </div>
+                </div>
+
+                <div class="certification-card" data-animation="fade-up" data-delay="200" data-certificate-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80">
+                    <div class="certification-header">
+                        <div class="certification-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="certification-info">
+                            <h3 class="certification-title">React Developer Certification</h3>
+                            <p class="certification-issuer">Meta (Facebook)</p>
+                            <span class="certification-date">2022</span>
+                        </div>
+                    </div>
+                    <div class="certification-description">
+                        Advanced certification in React development, including hooks, context, and performance optimization.
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('react-cert')">
+                            <i class="fas fa-certificate"></i>
+                            显示文凭
+                        </button>
+                    </div>
+                </div>
+
+                <div class="certification-card" data-animation="fade-up" data-delay="300" data-certificate-image="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80">
+                    <div class="certification-header">
+                        <div class="certification-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="certification-info">
+                            <h3 class="certification-title">Full Stack Web Development</h3>
+                            <p class="certification-issuer">freeCodeCamp</p>
+                            <span class="certification-date">2021</span>
+                        </div>
+                    </div>
+                    <div class="certification-description">
+                        Comprehensive certification covering frontend and backend development technologies.
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('fullstack-cert')">
+                            <i class="fas fa-certificate"></i>
+                            显示文凭
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Certificate Modal -->
+        <div id="certificate-modal" class="certificate-modal">
+            <div class="certificate-modal-content">
+                <span class="certificate-close" onclick="closeCertificate()">&times;</span>
+                <div class="certificate-container">
+                    <img id="certificate-image" src="" alt="Certificate" />
+                    <div class="certificate-placeholder">
+                        <i class="fas fa-certificate"></i>
+                        <p>暂无文凭图片</p>
+                        <p>请在HTML中配置图片链接</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Projects -->
         <section id="projects" class="section">
