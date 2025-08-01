@@ -336,8 +336,8 @@ const PROJECT_DEMO_CONFIG = {
     // 项目演示链接映射
     demoUrls: {
         'E-commerce Platform': 'https://devops9128.github.io/subscription-tool/',
-        'Task Management App': 'https://taskmanager-demo.vercel.app',
-        'Weather Dashboard': 'https://weather-dashboard-demo.surge.sh'
+        'Task Management App': 'https://devops9128.github.io/equip-info/',
+        'Weather Dashboard': 'https://devops9128.github.io/equip-info/'
     },
     
     // 演示环境信息
