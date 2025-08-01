@@ -335,7 +335,7 @@ const LINKEDIN_CONFIG = {
 const PROJECT_DEMO_CONFIG = {
     // 项目演示链接映射
     demoUrls: {
-        'E-commerce Platform': 'https://ecommerce-demo.netlify.app',
+        'E-commerce Platform': 'https://devops9128.github.io/subscription-tool/',
         'Task Management App': 'https://taskmanager-demo.vercel.app',
         'Weather Dashboard': 'https://weather-dashboard-demo.surge.sh'
     },
