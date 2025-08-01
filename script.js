@@ -335,14 +335,14 @@ const LINKEDIN_CONFIG = {
 const PROJECT_DEMO_CONFIG = {
     // 项目演示链接映射
     demoUrls: {
-        'E-commerce Platform': 'https://ecommerce-demo.netlify.app',
+        'Subscription Management': 'https://devops9128.github.io/subscription-tool/',
         'Task Management App': 'https://taskmanager-demo.vercel.app',
-        'Weather Dashboard': 'https://weather-dashboard-demo.surge.sh'
+        'Equipment Management': 'https://devops9128.github.io/equip-info/'
     },
     
     // 演示环境信息
     environments: {
-        'E-commerce Platform': {
+        'Subscription Management': {
             status: 'live',
             lastUpdated: '2024-12-15',
             technologies: ['React', 'Node.js', 'MongoDB'],
@@ -354,7 +354,7 @@ const PROJECT_DEMO_CONFIG = {
             technologies: ['Vue.js', 'Socket.io', 'Firebase'],
             features: ['实时协作', '拖拽功能', '团队管理', '任务分配']
         },
-        'Weather Dashboard': {
+        'Equipment Management': {
             status: 'live',
             lastUpdated: '2024-12-08',
             technologies: ['JavaScript', 'Chart.js', 'Weather API'],
