@@ -335,15 +335,9 @@ const LINKEDIN_CONFIG = {
 const PROJECT_DEMO_CONFIG = {
     // 项目演示链接映射
     demoUrls: {
-<<<<<<< HEAD
         'Subscription Management': 'https://devops9128.github.io/subscription-tool/',
         'Task Management App': 'https://taskmanager-demo.vercel.app',
         'Equipment Management': 'https://devops9128.github.io/equip-info/'
-=======
-        'E-commerce Platform': 'https://devops9128.github.io/subscription-tool/',
-        'Task Management App': 'https://devops9128.github.io/equip-info/',
-        'Weather Dashboard': 'https://devops9128.github.io/equip-info/'
->>>>>>> 2c91fad90e0f87195176c116915ee3fed71f5a9a
     },
     
     // 演示环境信息
