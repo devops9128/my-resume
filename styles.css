@@ -168,6 +168,11 @@ body {
     padding: 2rem 0;
 }
 
+/* About Me section - 移除margin */
+#about {
+    margin: 0;
+}
+
 .section-header {
     margin-bottom: 2rem;
     text-align: center;
