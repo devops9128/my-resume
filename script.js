@@ -1,5 +1,11 @@
 // 等待DOM加载完成
 document.addEventListener('DOMContentLoaded', function() {
+    // 页面刷新时自动回到顶部
+    if (window.history.scrollRestoration) {
+        window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    
     // 初始化所有功能
     initNavigation();
     initSkillBars();
@@ -10,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initGitHubFeatures(); // 初始化GitHub功能
     initLinkedInFeatures(); // 初始化LinkedIn功能
     initProjectDemoFeatures(); // 初始化项目演示功能
+    initCertificationFeatures(); // 初始化认证功能
     
     // 异步获取信息
     updateGitHubInfo();
@@ -88,7 +95,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // 观察所有卡片元素
-    const animatedElements = document.querySelectorAll('.stat-card, .timeline-item, .education-card, .project-card');
+    const animatedElements = document.querySelectorAll('.stat-card, .timeline-item, .certification-card, .project-card');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -127,7 +134,7 @@ function createMobileMenuButton() {
         top: 20px;
         left: 20px;
         z-index: 1001;
-        background: #E67E22;
+        background: linear-gradient(135deg, #00D4AA, #007991);
         color: white;
         border: none;
         width: 50px;
@@ -135,7 +142,7 @@ function createMobileMenuButton() {
         border-radius: 50%;
         font-size: 1.2rem;
         cursor: pointer;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
         transition: all 0.3s ease;
     `;
     
@@ -328,14 +335,14 @@ const LINKEDIN_CONFIG = {
 const PROJECT_DEMO_CONFIG = {
     // 项目演示链接映射
     demoUrls: {
-        'E-commerce Platform': 'https://ecommerce-demo.netlify.app',
+        'Subscription Management': 'https://devops9128.github.io/subscription-tool/',
         'Task Management App': 'https://taskmanager-demo.vercel.app',
-        'Weather Dashboard': 'https://weather-dashboard-demo.surge.sh'
+        'Equipment Management': 'https://devops9128.github.io/equip-info/'
     },
     
     // 演示环境信息
     environments: {
-        'E-commerce Platform': {
+        'Subscription Management': {
             status: 'live',
             lastUpdated: '2024-12-15',
             technologies: ['React', 'Node.js', 'MongoDB'],
@@ -347,7 +354,7 @@ const PROJECT_DEMO_CONFIG = {
             technologies: ['Vue.js', 'Socket.io', 'Firebase'],
             features: ['实时协作', '拖拽功能', '团队管理', '任务分配']
         },
-        'Weather Dashboard': {
+        'Equipment Management': {
             status: 'live',
             lastUpdated: '2024-12-08',
             technologies: ['JavaScript', 'Chart.js', 'Weather API'],
@@ -773,3 +780,236 @@ const throttledScroll = throttle(() => {
 }, 100);
 
 window.addEventListener('scroll', throttledScroll);
+
+// ===== 认证证书功能 =====
+
+// 初始化认证功能
+function initCertificationFeatures() {
+    initCertificationAnimations();
+    initCertificateModal();
+    
+    console.log('认证功能已初始化');
+}
+
+// 初始化认证卡片动画
+function initCertificationAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.getAttribute('data-delay') || 0;
+                
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                }, delay);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // 观察所有认证卡片
+    const certificationCards = document.querySelectorAll('.certification-card');
+    certificationCards.forEach(card => {
+        observer.observe(card);
+    });
+}
+
+// 初始化证书模态框
+function initCertificateModal() {
+    const modal = document.getElementById('certificate-modal');
+    
+    if (modal) {
+        // 点击模态框外部关闭
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeCertificate();
+            }
+        });
+        
+        // ESC键关闭模态框
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeCertificate();
+            }
+        });
+    }
+}
+
+// 显示证书
+function showCertificate(certId) {
+    const modal = document.getElementById('certificate-modal');
+    const certificateImage = document.getElementById('certificate-image');
+    const placeholder = document.querySelector('.certificate-placeholder');
+    
+    if (!modal) {
+        console.error('证书模态框未找到');
+        return;
+    }
+    
+    // 查找对应的认证卡片
+    const certificationCard = document.querySelector(`[onclick*="${certId}"]`).closest('.certification-card');
+    const imageUrl = certificationCard ? certificationCard.getAttribute('data-certificate-image') : null;
+    
+    if (imageUrl) {
+        certificateImage.src = imageUrl;
+        certificateImage.style.display = 'block';
+        placeholder.style.display = 'none';
+        
+        // 添加图片加载错误处理
+        certificateImage.onerror = function() {
+            certificateImage.style.display = 'none';
+            placeholder.style.display = 'block';
+        };
+    } else {
+        certificateImage.style.display = 'none';
+        placeholder.style.display = 'block';
+    }
+    
+    // 显示模态框
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+    
+    // 添加显示动画
+    setTimeout(() => {
+        modal.querySelector('.certificate-modal-content').style.transform = 'scale(1)';
+        modal.querySelector('.certificate-modal-content').style.opacity = '1';
+    }, 10);
+}
+
+// 关闭证书模态框
+function closeCertificate() {
+    const modal = document.getElementById('certificate-modal');
+    
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // 恢复背景滚动
+        
+        // 重置模态框内容状态
+        const modalContent = modal.querySelector('.certificate-modal-content');
+        modalContent.style.transform = 'scale(0.9)';
+        modalContent.style.opacity = '0';
+    }
+}
+
+// 导出证书管理功能到全局作用域
+window.showCertificate = showCertificate;
+window.closeCertificate = closeCertificate;
+
+// ===== 页面刷新处理 =====
+
+// 确保页面刷新时回到顶部
+window.addEventListener('beforeunload', function() {
+    window.scrollTo(0, 0);
+});
+
+// 页面加载时强制回到顶部
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 0);
+});
+
+// 处理浏览器的滚动恢复功能
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// ===== 图片保护功能 =====
+
+// 禁用图片保护区域的右键菜单
+function disableImageProtection() {
+    // 获取需要保护的元素
+    const protectedElements = [
+        '.profile-image',
+        '.profile-image img',
+        '#certificate-image',
+        '.certificate-modal-content'
+    ];
+    
+    protectedElements.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            // 禁用右键菜单
+            element.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // 禁用拖拽
+            element.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // 禁用选择
+            element.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        });
+    });
+}
+
+// 禁用特定键盘快捷键
+document.addEventListener('keydown', function(e) {
+    // 检查是否在保护区域内
+    const isInProtectedArea = e.target.closest('.profile-image') || 
+                             e.target.closest('.certificate-modal-content') ||
+                             e.target.id === 'certificate-image';
+    
+    if (isInProtectedArea) {
+        // 禁用 Ctrl+S (保存)
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            return false;
+        }
+        
+        // 禁用 Ctrl+A (全选)
+        if (e.ctrlKey && e.key === 'a') {
+            e.preventDefault();
+            return false;
+        }
+        
+        // 禁用 Ctrl+C (复制)
+        if (e.ctrlKey && e.key === 'c') {
+            e.preventDefault();
+            return false;
+        }
+        
+        // 禁用 F12 (开发者工具)
+        if (e.key === 'F12') {
+            e.preventDefault();
+            return false;
+        }
+        
+        // 禁用 Ctrl+Shift+I (开发者工具)
+        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+            e.preventDefault();
+            return false;
+        }
+        
+        // 禁用 Ctrl+U (查看源代码)
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+            return false;
+        }
+    }
+});
+
+// 初始化图片保护
+document.addEventListener('DOMContentLoaded', function() {
+    disableImageProtection();
+});
+
+// 当模态框打开时重新应用保护
+const originalShowCertificate = window.showCertificate;
+window.showCertificate = function(certId) {
+    originalShowCertificate(certId);
+    // 延迟应用保护，确保模态框已完全加载
+    setTimeout(disableImageProtection, 100);
+};

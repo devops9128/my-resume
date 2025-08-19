@@ -23,19 +23,19 @@ body {
     top: 0;
     width: 300px;
     height: 100vh;
-    background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+    background: linear-gradient(135deg, #0F3460 0%, #16537e 50%, #1e6091 100%);
     color: white;
     padding: 2rem 1.5rem;
     overflow-y: auto;
     z-index: 1000;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 15px rgba(15, 52, 96, 0.3);
 }
 
 .profile-section {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .profile-image {
@@ -44,8 +44,8 @@ body {
     margin: 0 auto 1rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #E67E22;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 4px solid #00D4AA;
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
 }
 
 .profile-image img {
@@ -59,12 +59,15 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #ECF0F1;
+    color: #FFFFFF;
 }
 
 .title {
     font-size: 0.9rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
 }
 
@@ -91,8 +94,9 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .nav-link i {
@@ -105,7 +109,7 @@ body {
 .contact-info {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .contact-item {
@@ -113,14 +117,14 @@ body {
     align-items: center;
     margin-bottom: 0.75rem;
     font-size: 0.85rem;
-    color: #BDC3C7;
+    color: #B8E6FF;
 }
 
 .contact-item i {
     margin-right: 0.75rem;
     width: 16px;
     text-align: center;
-    color: #E67E22;
+    color: #00D4AA;
 }
 
 /* 社交链接 */
@@ -136,16 +140,19 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ECF0F1;
+    background-color: rgba(0, 212, 170, 0.2);
+    color: #B8E6FF;
     text-decoration: none;
     border-radius: 50%;
     transition: all 0.3s ease;
+    border: 1px solid rgba(0, 212, 170, 0.3);
 }
 
 .social-link:hover {
-    background-color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
+    color: white;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
 }
 
 /* 主内容区域 */
@@ -170,16 +177,20 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     font-weight: 600;
-    color: #2C3E50;
+    background: linear-gradient(45deg, #0F3460, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1rem;
 }
 
 .section-line {
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #E67E22, #F39C12);
+    background: linear-gradient(90deg, #00D4AA, #007991);
     margin: 0 auto;
     border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 212, 170, 0.3);
 }
 
 /* 关于我部分 */
@@ -220,7 +231,10 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 0.5rem;
 }
 
@@ -244,7 +258,8 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, #E67E22, #F39C12);
+    background: linear-gradient(180deg, #00D4AA, #007991);
+    box-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
 }
 
 .timeline-item {
@@ -257,24 +272,25 @@ body {
     content: '';
     position: absolute;
     left: 21px;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    background-color: #E67E22;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 50%;
-    border: 4px solid #FFFFFF;
-    box-shadow: 0 0 0 4px #E67E22;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2);
 }
 
 .timeline-date {
     display: inline-block;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .timeline-content {
@@ -282,7 +298,7 @@ body {
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid #E67E22;
+    border-left: 4px solid #00D4AA;
 }
 
 .job-title {
@@ -295,7 +311,10 @@ body {
 
 .company {
     font-size: 1rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
     margin-bottom: 1rem;
 }
@@ -360,11 +379,16 @@ body {
 }
 
 .skill-percentage {
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .skill-bar {
+    width: 100%;
     height: 8px;
     background-color: #ECF0F1;
     border-radius: 4px;
@@ -373,10 +397,11 @@ body {
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #E67E22, #F39C12);
+    background: linear-gradient(90deg, #00D4AA, #007991, #0F3460);
     border-radius: 4px;
     width: 0;
     transition: width 1.5s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 212, 170, 0.3);
 }
 
 /* 教育背景 */
@@ -405,12 +430,13 @@ body {
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
 }
 
 .education-icon i {
@@ -426,13 +452,16 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #2C3E50;
+    color: #0F3460;
     margin-bottom: 0.5rem;
 }
 
 .school {
     font-size: 1rem;
-    color: #E67E22;
+    background: linear-gradient(45deg, #00D4AA, #007991);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
@@ -447,6 +476,349 @@ body {
     font-size: 0.9rem;
     color: #666;
     line-height: 1.5;
+}
+
+/* ===== 图片保护样式 ===== */
+
+/* 防止头像图片被保存和复制 */
+.profile-image img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 防止认证证书图片被保存和复制 */
+#certificate-image {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 禁用右键菜单和选择 */
+.profile-image,
+.certificate-modal-content {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* 认证证书 */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.certification-card {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    opacity: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.certification-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.certification-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 认证等级徽章 */
+
+
+/* 卡片内容区域 */
+.certification-content {
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.certification-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.certification-icon.microsoft {
+    background: linear-gradient(135deg, #0078d4, #106ebe);
+    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+}
+
+.certification-icon.google {
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+}
+
+.certification-card:hover .certification-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.certification-icon i {
+    font-size: 1.8rem;
+    color: white;
+    z-index: 2;
+}
+
+.certification-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.certification-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0F3460;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.certification-issuer {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.microsoft-cert .certification-issuer {
+    color: #0078d4;
+}
+
+.google-cert .certification-issuer {
+    color: #4285f4;
+}
+
+/* 认证元数据 */
+.certification-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.certification-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+
+
+
+.certification-status i {
+    font-size: 0.8rem;
+}
+
+
+
+.certification-actions {
+    padding: 0 2rem 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.btn-certificate {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #00D4AA, #007991);
+    color: white;
+    min-width: 160px;
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-certificate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-certificate:hover::before {
+    left: 100%;
+}
+
+.btn-certificate:hover {
+    background: linear-gradient(135deg, #007991, #0F3460);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 121, 145, 0.4);
+}
+
+.btn-certificate:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 121, 145, 0.3);
+}
+
+.btn-certificate i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-certificate:hover i {
+    transform: scale(1.1);
+}
+
+/* 证书模态框 */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.certificate-modal-content {
+    position: relative;
+    background-color: #FFFFFF;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.certificate-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #666;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.certificate-close:hover {
+    background: linear-gradient(135deg, #00D4AA, #007991);
+    color: white;
+    transform: scale(1.1);
+}
+
+.certificate-container {
+    padding: 2rem;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-container img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-placeholder {
+    color: #999;
+    text-align: center;
+}
+
+.certificate-placeholder i {
+    font-size: 4rem;
+    color: #BDC3C7;
+    margin-bottom: 1rem;
+}
+
+.certificate-placeholder p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-placeholder p:last-child {
+    font-size: 0.9rem;
+    color: #BDC3C7;
 }
 
 /* 项目作品 */
@@ -512,11 +884,17 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     text-decoration: none;
     border-radius: 50%;
     transition: transform 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
+}
+
+.project-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
 }
 
 .project-link:hover {
@@ -548,9 +926,10 @@ body {
     gap: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.5rem 0.75rem;
-    background: rgba(231, 126, 34, 0.1);
+    background: rgba(0, 212, 170, 0.1);
     border-radius: 20px;
     width: fit-content;
+    border: 1px solid rgba(0, 212, 170, 0.2);
 }
 
 .status-dot {
@@ -657,13 +1036,14 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #E67E22;
+    border-color: #00D4AA;
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
 }
 
 .submit-btn {
     width: 100%;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #E67E22, #F39C12);
+    background: linear-gradient(135deg, #00D4AA, #007991);
     color: white;
     border: none;
     border-radius: 8px;
@@ -671,11 +1051,14 @@ body {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 212, 170, 0.3);
 }
 
 .submit-btn:hover {
+    background: linear-gradient(135deg, #007991, #0F3460);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 121, 145, 0.4);
 }
 
 .form-actions {
@@ -734,6 +1117,34 @@ body {
         grid-template-columns: 1fr;
     }
     
+    .certifications-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .certification-content {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .certification-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .certification-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .certification-title {
+        font-size: 1.1rem;
+    }
+    
+    .certification-actions {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+    
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -750,8 +1161,76 @@ body {
         gap: 1rem;
     }
     
-    .projects-grid {
+    .projects-grid,
+    .certifications-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .certification-card {
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .certification-content {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .certification-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+    }
+    
+    .certification-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .certification-title {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .certification-issuer {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .certification-meta {
+        align-items: center;
+        gap: 0.3rem;
+    }
+    
+    .certification-status {
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+    
+    .certification-actions {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        justify-content: center;
+        margin-top: auto;
+    }
+    
+    .btn-certificate {
+        min-width: auto;
+        width: 100%;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+
+    
+    .certificate-modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .certificate-container {
+        padding: 1rem;
     }
     
     .timeline-item {
@@ -793,10 +1272,54 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #E67E22;
+    background: linear-gradient(135deg, #00D4AA, #007991);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #D35400;
+    background: linear-gradient(135deg, #007991, #0F3460);
+}
+/* Footer 样式 */
+.footer {
+    background: linear-gradient(135deg, #0F3460, #16537e);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 3px solid #00D4AA;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-text {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-text p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #ECF0F1;
+    line-height: 1.5;
+}
+
+.footer-text p:first-child {
+    font-weight: 600;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
 }

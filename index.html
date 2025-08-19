@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Smith - Resume</title>
+    <title>Chris Goh - Resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <nav class="sidebar">
         <div class="profile-section">
             <div class="profile-image">
-                <img src="./cloud.png" alt="Profile Picture">
+                <img src="./cloud.png" alt="Profile Picture" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" draggable="false">
             </div>
             <h2 class="name">Chris Goh</h2>
             <p class="title">IT Support Engineer</p>
@@ -25,7 +25,7 @@
             <li><a href="#about" class="nav-link active"><i class="fas fa-user"></i> About Me</a></li>
             <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
             <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
-            <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
             <li><a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i> Projects</a></li>
             
         </ul>
@@ -238,42 +238,161 @@
             </div>
         </section>
 
-        <!-- Education -->
-        <section id="education" class="section">
+        <!-- Certifications -->
+        <section id="certifications" class="section">
             <div class="section-header">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title">Certifications</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Bachelor of Computer Science</h3>
-                            <span class="timeline-date">2016 - 2020</span>
+            <div class="certifications-grid">
+                <!-- Microsoft Azure Fundamental -->
+                <div class="certification-card microsoft-cert" data-animation="fade-up" data-certificate-image="./img/azure_fun.png">
+                    <div class="certification-content">
+                        <div class="certification-icon microsoft">
+                            <i class="fab fa-microsoft"></i>
                         </div>
-                        <p class="timeline-company">University of Technology</p>
-                        <p class="timeline-description">
-                            Major in Computer Science and Technology, with excellent academic performance. Participated in multiple programming competitions and technical projects, laying a solid foundation for software development.
-                        </p>
+                        <div class="certification-details">
+                            <h3 class="certification-title">Azure Fundamentals</h3>
+                            <p class="certification-issuer">Microsoft</p>
+                            <div class="certification-meta">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('aws-cert')">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Frontend Development Certification</h3>
-                            <span class="timeline-date">2020</span>
+
+                <!-- Microsoft MCSA 2016 -->
+                <div class="certification-card microsoft-cert" data-animation="fade-up" data-delay="100" data-certificate-image="./img/mcsa2016.png">
+                    <div class="certification-content">
+                        <div class="certification-icon microsoft">
+                            <i class="fab fa-microsoft"></i>
                         </div>
-                        <p class="timeline-company">Tech Academy</p>
-                        <p class="timeline-description">
-                            Completed comprehensive frontend development training, mastering modern frontend frameworks and development tools.
-                        </p>
+                        <div class="certification-details">
+                            <h3 class="certification-title">MCSA Windows Server 2016</h3>
+                            <p class="certification-issuer">Microsoft</p>
+                            <div class="certification-meta">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('mcsa-2016-cert')">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Microsoft MCSA 2012 -->
+                <div class="certification-card microsoft-cert" data-animation="fade-up" data-delay="200" data-certificate-image="./img/mcsa.png">
+                    <div class="certification-content">
+                        <div class="certification-icon microsoft">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="certification-details">
+                            <h3 class="certification-title">MCSA Windows Server 2012</h3>
+                            <p class="certification-issuer">Microsoft</p>
+                            <div class="certification-meta">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('mcsa-2012-cert')">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Google AI Essential -->
+                <div class="certification-card google-cert" data-animation="fade-up" data-delay="300" data-certificate-image="./img/googleai.png">
+                    <div class="certification-content">
+                        <div class="certification-icon google">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="certification-details">
+                            <h3 class="certification-title">Google AI Essentials</h3>
+                            <p class="certification-issuer">Google</p>
+                            <div class="certification-meta">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('google-ai-cert')">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Google IT Automation with Python -->
+                <div class="certification-card google-cert" data-animation="fade-up" data-delay="400" data-certificate-image="./img/Coursera.png">
+                    <div class="certification-content">
+                        <div class="certification-icon google">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="certification-details">
+                            <h3 class="certification-title">Google Automation with Python</h3>
+                            <p class="certification-issuer">Google</p>
+                            <div class="certification-meta">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('google-python-cert')">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Google IT Support -->
+                <div class="certification-card google-cert" data-animation="fade-up" data-delay="500" data-certificate-image="./img/googleit.png">
+                    <div class="certification-content">
+                        <div class="certification-icon google">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="certification-details">
+                            <h3 class="certification-title">Google IT Support</h3>
+                            <p class="certification-issuer">Google</p>
+                            <div class="certification-meta">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-actions">
+                        <button class="btn-certificate" onclick="showCertificate('google-it-cert')">
+                            <i class="fas fa-eye"></i>
+                            View Certificate
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Certificate Modal -->
+        <div id="certificate-modal" class="certificate-modal">
+            <div class="certificate-modal-content">
+                <span class="certificate-close" onclick="closeCertificate()">&times;</span>
+                <div class="certificate-container">
+                    <img id="certificate-image" src="" alt="Certificate" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;" draggable="false" />
+                    <div class="certificate-placeholder">
+                        <i class="fas fa-certificate"></i>
+                        <p>No certificate image available</p>
+                        <p>Please configure image link in HTML</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Projects -->
         <section id="projects" class="section">
@@ -294,7 +413,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">E-commerce Platform</h3>
+                        <h3 class="project-title">Subscription Management</h3>
                         <p class="project-description">
                             A full-featured e-commerce platform built with React and Node.js, including user authentication, product management, shopping cart, and payment integration.
                         </p>
@@ -344,7 +463,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Weather Dashboard</h3>
+                        <h3 class="project-title">Equipment Management</h3>
                         <p class="project-description">
                             A responsive weather dashboard with location-based forecasts, interactive charts, and beautiful animations.
                         </p>
@@ -367,20 +486,6 @@
             <div class="footer-text">
                 <p>&copy; 2025 Chris Goh. All rights reserved.</p>
                 <p>Built with ❤️ using HTML, CSS & JavaScript</p>
-            </div>
-            <div class="footer-social">
-                <a href="#" class="social-link" data-type="linkedin" data-tooltip="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="social-link" data-type="github" data-tooltip="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="social-link" data-type="twitter" data-tooltip="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-link" data-type="email" data-tooltip="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
             </div>
         </div>
     </footer>
