@@ -335,7 +335,7 @@ const LINKEDIN_CONFIG = {
 const PROJECT_DEMO_CONFIG = {
     // 项目演示链接映射
     demoUrls: {
-        'Subscription Management': 'https://devops9128.github.io/subscription-tool/',
+        'Subscription Management': 'https://subscription-tool-sigma.vercel.app/',
         'Task Management App': 'https://taskmanager-demo.vercel.app',
         'Equipment Management': 'https://devops9128.github.io/equip-info/'
     },
