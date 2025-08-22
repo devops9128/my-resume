@@ -459,23 +459,8 @@ function addProjectStatusIndicators() {
         const environment = PROJECT_DEMO_CONFIG.environments[projectTitle];
         
         if (environment) {
-            // 创建状态指示器
-            const statusIndicator = document.createElement('div');
-            statusIndicator.className = 'project-status';
-            statusIndicator.innerHTML = `
-                <span class="status-dot ${environment.status}"></span>
-                <span class="status-text">${environment.status === 'live' ? '在线演示' : '准备中'}</span>
-            `;
-            
-            // 添加到项目内容区域
-            const projectContent = card.querySelector('.project-content');
-            projectContent.insertBefore(statusIndicator, projectContent.querySelector('.project-tech'));
-            
-            // 更新演示按钮的tooltip
-            const demoButton = card.querySelector('.project-link[data-type="demo"]');
-            if (demoButton && environment.status === 'live') {
-                demoButton.setAttribute('data-tooltip', '查看在线演示');
-            }
+            // 环境配置存在但不显示状态指示器
+            console.log(`项目 ${projectTitle} 环境配置已加载`);
         }
     });
 }
